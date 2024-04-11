@@ -9,7 +9,7 @@ class ProductCtrl {
         .populate("category")
         .populate("auth");
       res.status(200).json({
-        message: "Lấy tất cả thành công :)",
+        message: "Lấy tất cả thành công<333",
         data: products,
       });
     } catch (err) {

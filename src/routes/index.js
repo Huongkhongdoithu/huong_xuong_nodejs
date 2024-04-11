@@ -3,7 +3,7 @@ import authRouter from "./authRoutes.js";
 import categoryRouter from "./categoryRoutes.js";
 export default function routes(app){
     app.get("/", (req,res) => {
-        res.send({message: "server đang chạy"})
+        res.send({message: "server is running"})
     })
     app.use('/products', productRouter)
     app.use('/auth', authRouter)

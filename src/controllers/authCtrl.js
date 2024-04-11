@@ -24,7 +24,7 @@ class authCtrl {
       //
       const hashedPassword = bcrypt.hashSync(password, 10);
       if (!hashedPassword) {
-        throw new Error("Hash mật khẩu thất bại");
+        throw new Error("sai mật khẩu");
       }
       //
       const auth = await authModel.create({
@@ -38,7 +38,7 @@ class authCtrl {
         data: { ...auth.toObject(), password: undefined },
       });
     } catch (err) {
-      res.status(500).json({ message: "CHÁY SERVER RỒI, " + err.message });
+      res.status(500).json({ message: "lỗi server, " + err.message });
     }
   }
 
@@ -79,19 +79,6 @@ class authCtrl {
       });
     }
   }
-  //   async signOut(req, res) {
-  //     try {
-  //       const auth = await authModel.findById(req.body);
-  //       res.status(200).json({
-  //         message: "Đăng ký thành công",
-  //         data: auth,
-  //       });
-  //     } catch (err) {
-  //       res.status(500).json({
-  //         message: "lỗi " + err.message,
-  //       });
-  //     }
-  //   }
 }
 
 export default authCtrl;
